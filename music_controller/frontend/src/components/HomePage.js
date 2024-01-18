@@ -15,6 +15,7 @@ import withRouter from '../routing/withRouter';
 
 const RoomWithRouter = withRouter(Room);
 const CreateRoomPageWithRouter = withRouter(CreateRoomPage); //wraped to access props.router.navigate
+const RoomJoinPageWithRouter = withRouter(RoomJoinPage);
 
 
 export default class HomePage extends Component{
@@ -26,7 +27,7 @@ export default class HomePage extends Component{
             <Router>
                 <Routes>
                     <Route exact path="/" element={<p>Homepage</p>}/>
-                    <Route path="/join" element={<RoomJoinPage/>}></Route>
+                    <Route path="/join" element={<RoomJoinPageWithRouter/>}></Route>
                     <Route path="/create" element={<CreateRoomPageWithRouter/>}></Route>
                     <Route path="/room/:roomCode" element={<RoomWithRouter />}></Route>
                 </Routes>
