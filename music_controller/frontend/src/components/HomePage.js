@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import RoomJoinPage from "./RoomJoinPage";
 import CreateRoomPage from "./CreateRoomPage";
 import Room from "./Room";
+import Info from "./Info";
 
 import {
     Grid,
@@ -57,6 +58,7 @@ export default class HomePage extends Component{
                     <ButtonGroup disableElevation variant="contained" color="primary">
                         <Button color="primary" to='/join' component={Link}>Join a Room</Button>
                         <Button color="secondary" to='/create' component={Link}>Create a Room</Button>
+                        <Button color="grey" to='/info' component={Link}>Info</Button>
                     </ButtonGroup>
                 </Grid>
             </Grid>
@@ -77,6 +79,7 @@ export default class HomePage extends Component{
                     <Route exact path="/" element={this.state.roomCode ? <Navigate to={`/room/${this.state.roomCode}`}/> : this.renderHomePage()}/>
                     <Route path="/join" element={<RoomJoinPageWithRouter/>}></Route>
                     <Route path="/create" element={<CreateRoomPageWithRouter/>}></Route>
+                    <Route path="/info" element={<Info/>}></Route>
                     <Route path="/room/:roomCode" element={<RoomWithRouter leaveRoomCallback={this.clearRoomCode} />}></Route>
                 </Routes>
             </Router>
